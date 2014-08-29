@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout name="teaser" type="related">
+        <name>Teaser</name>
+        <description>An item is rendered with the teaser layout in the frontpage, category, alphaindex and tag view.</description>
+    </layout>
+</metadata>
