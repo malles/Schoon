@@ -19,57 +19,65 @@ include($this['path']->path('layouts:theme.config.php'));
 
 <body class="<?php echo $this['config']->get('body_classes'); ?>">
 
-    <div class="uk-container uk-container-center">
+    <div class="bix-gradient">
+		<div class="uk-container uk-container-center">
 
-        <?php if ($this['widgets']->count('toolbar-l + toolbar-r')) : ?>
-        <div class="tm-toolbar uk-clearfix uk-hidden-small">
+			<?php if ($this['widgets']->count('toolbar-l + toolbar-r')) : ?>
+			<div class="tm-toolbar uk-clearfix uk-hidden-small">
 
-            <?php if ($this['widgets']->count('toolbar-l')) : ?>
-            <div class="uk-float-left"><?php echo $this['widgets']->render('toolbar-l'); ?></div>
-            <?php endif; ?>
+				<?php if ($this['widgets']->count('toolbar-l')) : ?>
+				<div class="uk-float-left"><?php echo $this['widgets']->render('toolbar-l'); ?></div>
+				<?php endif; ?>
 
-            <?php if ($this['widgets']->count('toolbar-r')) : ?>
-            <div class="uk-float-right"><?php echo $this['widgets']->render('toolbar-r'); ?></div>
-            <?php endif; ?>
+				<?php if ($this['widgets']->count('toolbar-r')) : ?>
+				<div class="uk-float-right"><?php echo $this['widgets']->render('toolbar-r'); ?></div>
+				<?php endif; ?>
 
-        </div>
-        <?php endif; ?>
+			</div>
+			<?php endif; ?>
 
-        <?php if ($this['widgets']->count('logo + headerbar')) : ?>
-        <div class="tm-headerbar uk-clearfix uk-hidden-small">
+			<?php if ($this['widgets']->count('logo + headerbar')) : ?>
+			<div class="tm-headerbar uk-clearfix uk-panel">
 
-            <?php if ($this['widgets']->count('logo')) : ?>
-            <a class="tm-logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['widgets']->render('logo'); ?></a>
-            <?php endif; ?>
+				<?php if ($this['widgets']->count('logo')) : ?>
+				<a class="tm-logo uk-hidden-small" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['widgets']->render('logo'); ?></a>
+				<?php endif; ?>
 
-            <?php echo $this['widgets']->render('headerbar'); ?>
+				<?php echo $this['widgets']->render('headerbar'); ?>
 
-        </div>
-        <?php endif; ?>
+			</div>
+			<?php endif; ?>
+		</div>
+	</div>
+	<div class="bix-navbar">
+		<div class="uk-container uk-container-center">
+			<?php if ($this['widgets']->count('menu + search')) : ?>
+				<nav class="tm-navbar uk-navbar">
 
-        <?php if ($this['widgets']->count('menu + search')) : ?>
-        <nav class="tm-navbar uk-navbar">
+					<?php if ($this['widgets']->count('menu')) : ?>
+						<?php echo $this['widgets']->render('menu'); ?>
+					<?php endif; ?>
 
-            <?php if ($this['widgets']->count('menu')) : ?>
-            <?php echo $this['widgets']->render('menu'); ?>
-            <?php endif; ?>
+					<?php if ($this['widgets']->count('offcanvas')) : ?>
+						<a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+					<?php endif; ?>
 
-            <?php if ($this['widgets']->count('offcanvas')) : ?>
-            <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
-            <?php endif; ?>
+					<?php if ($this['widgets']->count('search')) : ?>
+						<div class="uk-navbar-flip">
+							<div class="uk-navbar-content uk-hidden-small"><?php echo $this['widgets']->render('search'); ?></div>
+						</div>
+					<?php endif; ?>
 
-            <?php if ($this['widgets']->count('search')) : ?>
-            <div class="uk-navbar-flip">
-                <div class="uk-navbar-content uk-hidden-small"><?php echo $this['widgets']->render('search'); ?></div>
-            </div>
-            <?php endif; ?>
+					<?php if ($this['widgets']->count('logo-small')) : ?>
+						<div class="uk-navbar-content uk-navbar-center uk-visible-small"><a class="tm-logo-small" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['widgets']->render('logo-small'); ?></a></div>
+					<?php endif; ?>
 
-            <?php if ($this['widgets']->count('logo-small')) : ?>
-            <div class="uk-navbar-content uk-navbar-center uk-visible-small"><a class="tm-logo-small" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['widgets']->render('logo-small'); ?></a></div>
-            <?php endif; ?>
+				</nav>
+			<?php endif; ?>
+		</div>
+	</div>
+	<div class="uk-container uk-container-center">
 
-        </nav>
-        <?php endif; ?>
 
         <?php if ($this['widgets']->count('top-a')) : ?>
         <section class="<?php echo $grid_classes['top-a']; echo $display_classes['top-a']; ?>" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin><?php echo $this['widgets']->render('top-a', array('layout'=>$this['config']->get('grid.top-a.layout'))); ?></section>
@@ -119,28 +127,32 @@ include($this['path']->path('layouts:theme.config.php'));
 
         <?php if ($this['widgets']->count('bottom-a')) : ?>
         <section class="<?php echo $grid_classes['bottom-a']; echo $display_classes['bottom-a']; ?>" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin><?php echo $this['widgets']->render('bottom-a', array('layout'=>$this['config']->get('grid.bottom-a.layout'))); ?></section>
-        <?php endif; ?>
+		<?php endif; ?>
+	</div>
+	<div class="bix-footer">
+		<div class="uk-container uk-container-center">
 
         <?php if ($this['widgets']->count('bottom-b')) : ?>
         <section class="<?php echo $grid_classes['bottom-b']; echo $display_classes['bottom-b']; ?>" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin><?php echo $this['widgets']->render('bottom-b', array('layout'=>$this['config']->get('grid.bottom-b.layout'))); ?></section>
         <?php endif; ?>
 
-        <?php if ($this['widgets']->count('footer + debug') || $this['config']->get('warp_branding', true) || $this['config']->get('totop_scroller', true)) : ?>
-        <footer class="tm-footer">
+		<?php if ($this['widgets']->count('footer + debug') || $this['config']->get('warp_branding', true) || $this['config']->get('totop_scroller', true)) : ?>
+		<footer class="tm-footer">
 
-            <?php if ($this['config']->get('totop_scroller', true)) : ?>
-            <a class="tm-totop-scroller" data-uk-smooth-scroll href="#"></a>
-            <?php endif; ?>
+			<?php if ($this['config']->get('totop_scroller', true)) : ?>
+			<a class="tm-totop-scroller" data-uk-smooth-scroll href="#"></a>
+			<?php endif; ?>
 
-            <?php
-                echo $this['widgets']->render('footer');
-                $this->output('warp_branding');
-                echo $this['widgets']->render('debug');
-            ?>
+			<?php
+				echo $this['widgets']->render('footer');
+				$this->output('warp_branding');
+				echo $this['widgets']->render('debug');
+			?>
 
-        </footer>
-        <?php endif; ?>
+		</footer>
+		<?php endif; ?>
 
+   		</div>
     </div>
 
     <?php echo $this->render('footer'); ?>

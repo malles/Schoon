@@ -11,9 +11,21 @@
 
 @description-list-line-border:                  @global-border;
 @description-list-line-color:                   @global-muted-color;
+@description-list-horizontal-width:             70px;
+@description-list-horizontal-margin-left:       90px;
 
 
 // Miscellaneous
 // ========================================================================
 
-.hook-description-list-misc() {}
+.hook-description-list-misc() {
+  /* Modifier: `uk-description-list-space`
+ ========================================================================== */
+
+  .uk-description-list-space > dt:nth-child(n+2) {
+    margin-top: @description-list-line-margin-top;
+    padding-top: @description-list-line-margin-top;
+  }
+
+
+}

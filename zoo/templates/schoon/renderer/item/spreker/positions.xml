@@ -8,4 +8,16 @@
         <position name="content">Content</position>
         <position name="links">Links</position>
     </positions>
+    <positions layout="full">
+        <position name="top">Top</position>
+        <position name="title">Title</position>
+        <position name="subtitle">Subtitle</position>
+        <position name="meta">Meta</position>
+        <position name="media">Media</position>
+        <position name="content">Content</position>
+        <position name="taxonomy">Taxonomy</position>
+        <position name="bottom">Bottom</position>
+        <position name="related">Related</position>
+        <position name="author">Author</position>
+    </positions>
 </renderer>

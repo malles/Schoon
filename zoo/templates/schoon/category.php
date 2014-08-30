@@ -26,7 +26,7 @@ $css_class = $this->application->getGroup().'-'.$this->template->name;
 <div class="yoo-zoo <?php echo $css_class; ?> <?php echo $css_class.'-'.$this->category->alias; ?>">
 
 	<?php if ($this->params->get('template.show_title')) : ?>
-	<h2 class="uk-h3 <?php echo 'uk-align-'.$this->params->get('template.alignment'); ?>"><?php echo JText::_('Articles in Category').': '.$this->category->name; ?></h2>
+	<h2 class="uk-h3"><?php echo $this->category->name; ?></h2>
 	<?php endif; ?>
 
 	<?php if ($this->category->getParams()->get('content.subtitle')) : ?>

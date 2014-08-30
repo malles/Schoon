@@ -122,8 +122,22 @@ $this['asset']->addFile('js', 'js:theme.js');
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
     $head[] = sprintf('<!--[if IE 8]><link rel="stylesheet" href="%s"><![endif]-->', $this['path']->url('css:ie8.css'));
+    $head[] = sprintf('<!--[if IE 9]><link rel="stylesheet" href="%s"><![endif]-->', $this['path']->url('css:ie9.css'));
     $head[] = sprintf('<!--[if lte IE 8]><script src="%s"></script><![endif]-->', $this['path']->url('js:html5.js'));
 }
+
+//meta props
+$document = JFactory::getDocument();
+$uri = JFactory::getUri();
+$head[] = '<meta property="og:title" content="' . $document->getTitle() . '"/>';
+$head[] = '<meta property="og:url" content="' . $uri->current() . '" />';
+$imageLink = 'images/bord.png';
+if (file_exists(JPATH_ROOT . '/' . $imageLink)) {
+	$head[] = '<meta property="og:image" content="' . JURI::root() . $imageLink . '"/>';
+}
+$head[] = '<meta property="og:site_name" content="' . JFactory::getConfig()->get('sitename') . '"/>';
+$head[] = '<meta property="og:description" content="' . $document->getDescription() . '"/>';
+$head[] = '<meta property="og:type" content="website" />';
 
 if (isset($head)) {
     $this['template']->set('head', implode("\n", $head));

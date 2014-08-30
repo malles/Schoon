@@ -1,6 +1,7 @@
 /* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
 
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,400,300';
+@import 'https://fonts.googleapis.com/css?family=Oswald:600,400,300';
 
 // Variables
 // ========================================================================
@@ -16,13 +17,13 @@
 // Text
 //
 
-@global-link-color: #1fa2d6;
-@global-link-hover-color: #0074a2;
+@global-link-color: #0e78fe;
+@global-link-hover-color: #1150fe;
 
 //
 // Backgrounds & Borders
 //
-
+@global-default-background: #d9dadb;
 @global-primary-gradient-top: #5cc0ea;
 @global-primary-gradient-bottom: #4cacd7;
 
@@ -30,8 +31,11 @@
 // Base
 //
 
-@base-h1-font-size: round(@global-font-size * 2.85); // 40px
-@base-h1-line-height: round(@base-h1-font-size * 1.25); // 50px
+@global-border-radius: 0;
+
+
+@base-h1-font-size: 25px;
+@base-h1-line-height: 25px;
 @base-h2-font-size: round(@global-font-size * 2.28); // 32px
 @base-h2-line-height: round(@base-h2-font-size * 1.25); // 40px
 @base-h3-font-size: round(@global-font-size * 1.71); // 24px
@@ -40,9 +44,10 @@
 @base-h4-line-height: round(@base-h4-font-size * 1.33); // 24px
 @base-selection-background: #1fa2d6;
 @base-body-font-family: 'Open Sans';
-@base-heading-font-family: 'Open Sans';
+@base-heading-font-family: 'Oswald', 'Open Sans';
+@base-heading-text-transform: uppercase;
 @base-heading-font-weight: 300;
-
+@base-heading-color: #000;
 //
 // Panel
 //
@@ -55,7 +60,6 @@
 // Article
 //
 
-@article-title-font-weight: 300;
 
 //
 // Nav
@@ -71,7 +75,6 @@
 // Navbar
 //
 
-@navbar-nav-height: 45px;
 
 //
 // Button
@@ -108,6 +111,11 @@
 //
 // Utility
 //
+@utility-container-max-width:             866px;
+@utility-container-padding-horizontal:    25px;
+
+@utility-container-large-max-width:             866px;
+@utility-container-large-padding-horizontal:    25px;
 
 @utility-heading-large-font-size: round(@global-font-size * 3.71); // 52px
 @utility-heading-large-line-height: round(@utility-heading-large-font-size * 1.23); // 64px

@@ -16,49 +16,42 @@ $params = $item->getParams('site');
 $align = ($this->checkPosition('media')) ? $params->get('template.teaseritem_media_alignment') : '';
 
 ?>
-
-<?php if ($align == "above") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
+<?php if ($this->checkPosition('meta')) : ?>
+	<div class="uk-badge uk-panel-badge">
+		<?php echo $this->renderPosition('meta'); ?>
+	</div>
 <?php endif; ?>
 
 <?php if ($this->checkPosition('title')) : ?>
-<h1 class="uk-article-title">
+<h1 class="uk-panel-title">
 	<?php echo $this->renderPosition('title'); ?>
 </h1>
 <?php endif; ?>
-
 <?php if ($this->checkPosition('subtitle')) : ?>
-<p class="uk-article-lead">
-	<?php echo $this->renderPosition('subtitle'); ?>
-</p>
+	<p class="uk-article-lead">
+		<?php echo $this->renderPosition('subtitle'); ?>
+	</p>
 <?php endif; ?>
+<div class="uk-grid">
+	<div class="uk-width-medium-1-3 uk-text-center">
+		<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
+	</div>
+	<div class="uk-width-medium-2-3">
+		<?php if ($this->checkPosition('content')) : ?>
+			<?php echo $this->renderPosition('content'); ?>
+		<?php endif; ?>
 
-<?php if ($align == "top") : ?>
-	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
-<?php endif; ?>
-
-<?php if ($align == "left" || $align == "right") : ?>
-<div class="uk-align-medium-<?php echo $align; ?>">
-	<?php echo $this->renderPosition('media'); ?>
+	</div>
 </div>
-<?php endif; ?>
 
-<?php if ($this->checkPosition('content')) : ?>
-	<?php echo $this->renderPosition('content'); ?>
-<?php endif; ?>
 
-<?php if ($this->checkPosition('meta')) : ?>
-<p class="uk-article-meta">
-    <?php echo $this->renderPosition('meta'); ?>
-</p>
-<?php endif; ?>
 
 <?php if ($align == "bottom") : ?>
 	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 <?php endif; ?>
 
 <?php if ($this->checkPosition('links')) : ?>
-<ul class="uk-subnav uk-subnav-line">
+<ul class="uk-subnav uk-subnav-line uk-text-right">
 	<?php echo $this->renderPosition('links', array('style' => 'uikit_subnav')); ?>
 </ul>
 <?php endif;

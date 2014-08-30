@@ -8,11 +8,18 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
-
 ?>
-
-<article class="uk-article">
+<div class="uk-panel">
 <?php if ($item) : ?>
-	<?php echo $this->renderer->render('item.teaser', array('view' => $this, 'item' => $item)); ?>
+	<?php if ($this->renderer->pathExists('item/'.$item->type)) : ?>
+
+		<?php echo $this->renderer->render('item.'.$item->type.'.teaser', array('view' => $this, 'item' => $item)); ?>
+
+	<?php else : ?>
+
+		<?php echo $this->renderer->render('item.teaser', array('view' => $this, 'item' => $item)); ?>
+
+	<?php endif; ?>
+
 <?php endif; ?>
-</article>
+</div>

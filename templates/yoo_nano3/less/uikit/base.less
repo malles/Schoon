@@ -18,6 +18,7 @@
 @base-link-hover-color:                         @global-link-hover-color;
 @base-ins-color:                                @global-color;
 @base-mark-color:                               @global-color;
+@base-em-color: #993300;
 
 @base-margin-vertical:                          @global-margin;
 
@@ -96,4 +97,9 @@
 // Miscellaneous
 // ========================================================================
 
-.hook-base-misc() {}
+.hook-base-misc() {
+  em {
+    font-style: normal;
+    font-weight: 600;
+  }
+}
