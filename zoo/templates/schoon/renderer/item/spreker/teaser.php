@@ -32,7 +32,7 @@ $align = ($this->checkPosition('media')) ? $params->get('template.teaseritem_med
 		<?php echo $this->renderPosition('subtitle'); ?>
 	</p>
 <?php endif; ?>
-<div class="uk-grid">
+<div class="uk-grid" data-uk-grid-margin="">
 	<div class="uk-width-medium-1-3 uk-text-center">
 		<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 	</div>

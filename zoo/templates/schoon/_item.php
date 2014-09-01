@@ -9,8 +9,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 ?>
-<div class="uk-panel">
 <?php if ($item) : ?>
+	<div id="item-<?php echo $item->alias; ?>" class="uk-panel">
 	<?php if ($this->renderer->pathExists('item/'.$item->type)) : ?>
 
 		<?php echo $this->renderer->render('item.'.$item->type.'.teaser', array('view' => $this, 'item' => $item)); ?>
@@ -21,5 +21,6 @@ defined('_JEXEC') or die('Restricted access');
 
 	<?php endif; ?>
 
+	</div>
 <?php endif; ?>
-</div>
+
