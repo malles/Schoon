@@ -37,10 +37,16 @@ $align = ($this->checkPosition('media')) ? $params->get('template.teaseritem_med
 		<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 	</div>
 	<div class="uk-width-medium-2-3">
+		<div class="bix-fix-descr">
 		<?php if ($this->checkPosition('content')) : ?>
 			<?php echo $this->renderPosition('content'); ?>
 		<?php endif; ?>
-
+		</div>
+		<?php if ($this->checkPosition('links')) : ?>
+			<ul class="uk-subnav uk-subnav-line">
+				<?php echo $this->renderPosition('links', array('style' => 'uikit_subnav')); ?>
+			</ul>
+		<?php endif;?>
 	</div>
 </div>
 
@@ -49,9 +55,3 @@ $align = ($this->checkPosition('media')) ? $params->get('template.teaseritem_med
 <?php if ($align == "bottom") : ?>
 	<?php echo $this->renderPosition('media', array('style' => 'uikit_block')); ?>
 <?php endif; ?>
-
-<?php if ($this->checkPosition('links')) : ?>
-<ul class="uk-subnav uk-subnav-line uk-text-right">
-	<?php echo $this->renderPosition('links', array('style' => 'uikit_subnav')); ?>
-</ul>
-<?php endif;

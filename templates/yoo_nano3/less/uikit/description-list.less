@@ -9,8 +9,9 @@
 // Variables
 // ========================================================================
 
-@description-list-line-border:                  @global-border;
-@description-list-line-color:                   @global-muted-color;
+@description-list-line-margin-top:              15px;
+@description-list-line-border-width:            1px;
+@description-list-line-color:                   @global-color;
 @description-list-horizontal-width:             70px;
 @description-list-horizontal-margin-left:       90px;
 
@@ -22,9 +23,12 @@
   /* Modifier: `uk-description-list-space`
  ========================================================================== */
 
-  .uk-description-list-space > dt:nth-child(n+2) {
+  .uk-description-list-space > dd:not(:first-child), .uk-description-list-space > dt:not(:nth-child(2)) {
     margin-top: @description-list-line-margin-top;
-    padding-top: @description-list-line-margin-top;
+  }
+
+  .uk-description-list-space > dd p:last-child {
+    margin-bottom: 0;
   }
 
 

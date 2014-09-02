@@ -226,6 +226,10 @@ html { overflow-y: scroll; }
   position: relative;
   margin-top: @global-grid-gutter;
   background-color: darken(@global-default-background, 15%);
+  color: @global-contrast-color;
+  h6, a {
+    color: @global-contrast-color;
+  }
 }
 .tm-footer {
   min-height: 20px;
@@ -234,4 +238,10 @@ html { overflow-y: scroll; }
 ul.zoo-list > li {
   margin-top: 5px;
   padding-top: 25px;
+}
+/* Only large screens */
+@media (min-width: @breakpoint-medium) {
+  .bix-fix-descr {
+    min-height:92px;
+  }
 }
